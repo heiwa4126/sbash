@@ -12,6 +12,18 @@
 
 # もくじ
 
+- [sbash (Snoopy Bash)](#sbash-snoopy-bash)
+- [もくじ](#もくじ)
+- [インストール](#インストール)
+- [テスト](#テスト)
+- [既存ユーザへの適用](#既存ユーザへの適用)
+- [よくある質問](#よくある質問)
+  - [`pwd`などが記録されない](#pwdなどが記録されない)
+- [メモ](#メモ)
+  - [/usr/local/bin/sbashの実体](#usrlocalbinsbashの実体)
+  - [snoopy logのサンプル](#snoopy-logのサンプル)
+  - [snoopy-loggerのインストール](#snoopy-loggerのインストール)
+- [TODO](#todo)
 
 
 # インストール
@@ -29,7 +41,7 @@ sudo sh ./install.sh
 
 # テスト
 
-まずテストユーザを作成する(ここではuser001とする)
+まずテストユーザを作成する(仮に`user001`とする)。
 
 ```sh
 sudo useradd -s /usr/local/bin/sbash user001
@@ -90,6 +102,8 @@ sudo usermod -s /usr/local/bin/sbash root
 /bin/tty -s
 if [ $? -eq 0 ]; then
   export LD_PRELOAD=/usr/lib64/libsnoopy.so
+  # Debian, Ubuntuの場合
+  # export LD_PRELOAD=/lib/x86_64-linux-gnu/libsnoopy.so
 fi
 exec /usr/bin/bash "$@"
 ```
@@ -103,6 +117,20 @@ exec /usr/bin/bash "$@"
 Aug 26 04:55:38 r7 snoopy[22921]: [uid:1001 sid:10741 tty:/dev/pts/4 cwd:/home/user1 filename:/bin/ls]: ls --color=auto -la
 Aug 26 04:55:40 r7 snoopy[22922]: [uid:1001 sid:10741 tty:/dev/pts/4 cwd:/home/user1 filename:/bin/date]: date
 ```
+
+## snoopy-loggerのインストール
+
+Debian, Ubuntuの場合
+```
+apt install snoopy
+```
+
+RHEL, Cent OSの場合は、
+どこかから
+`snoopy-2.4.6-1.el7.x86_64.rpm`
+を見つけてインストールする。昔はEPELにあった。
+[a2o/snoopy: Log every executed command to syslog (a.k.a. Snoopy Logger).](https://github.com/a2o/snoopy)の手順を実行してもインストールできない(a2o.siが死んでるらしい)。
+
 
 # TODO
 
