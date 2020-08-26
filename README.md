@@ -1,7 +1,7 @@
 # sbash (Snoopy Bash)
 
 [Snoopy Logger](https://github.com/a2o/snoopy)
-を使って
+を使って、
 特定のユーザがログイン(su, sudo含む)した場合に
 コマンドラインを記録するシェル。
 シェルスクリプトで記述されている。
@@ -108,7 +108,7 @@ fi
 exec /usr/bin/bash "$@"
 ```
 
-見ての通り大したことをしているわけではない。
+見ての通り大したことはしてない。
 
 ## snoopy logのサンプル
 
@@ -129,7 +129,7 @@ RHEL, Cent OSの場合は、
 どこかから
 `snoopy-2.4.6-1.el7.x86_64.rpm`
 を見つけてインストールする。昔はEPELにあった。
-[a2o/snoopy: Log every executed command to syslog (a.k.a. Snoopy Logger).](https://github.com/a2o/snoopy)の手順を実行してもインストールできない(a2o.siが死んでるらしい)。
+[a2o/snoopy: Log every executed command to syslog (a.k.a. Snoopy Logger).](https://github.com/a2o/snoopy)の手順を実行してもインストールできない(a2o.siが死んでるらしい)。contributeされた.specもなんだか怪しくて、rpmbuildできない(頑張る)。
 
 
 # TODO
