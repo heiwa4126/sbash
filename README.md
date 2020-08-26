@@ -6,6 +6,8 @@
 コマンドラインを記録するシェル。
 シェルスクリプトで記述されている。
 
+ログインシェルをbashからこれに変更して使う。
+
 いちおうRHEL,Cent OS用
 (Debian, Ubuntu用にするには1行変えるだけ)。
 
@@ -20,7 +22,7 @@
 - [よくある質問](#よくある質問)
   - [`pwd`などが記録されない](#pwdなどが記録されない)
 - [メモ](#メモ)
-  - [/usr/local/bin/sbashの実体](#usrlocalbinsbashの実体)
+  - [/usr/local/bin/sbashの中身](#usrlocalbinsbashの中身)
   - [snoopy logのサンプル](#snoopy-logのサンプル)
   - [snoopy-loggerのインストール](#snoopy-loggerのインストール)
 - [TODO](#todo)
@@ -96,7 +98,7 @@ sudo usermod -s /usr/local/bin/sbash root
 
 # メモ
 
-## /usr/local/bin/sbashの実体
+## /usr/local/bin/sbashの中身
 
 ```sh
 #!/usr/bin/bash
