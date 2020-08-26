@@ -47,9 +47,10 @@ sudo sh ./install.sh
 sudo useradd -s /usr/local/bin/sbash user001
 sudo passwd user001
 ```
+(Debian, Ubuntuの場合さらにuser001のhome dirを作ってパーミッションを設定すること)
 
-さらに
 
+そして
 ```sh
 su - user001
 # または
