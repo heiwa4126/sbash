@@ -97,14 +97,16 @@ bashの内部コマンドは記録されません。
 
 bashの内部コマンドは `bash -c help` または単に `help` で表示されるやつです。
 
-リファレンスはこちら→ [Bash Builtins (Bash Reference Manual)](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
+リファレンスは:
+- [Bourne Shell Builtins](https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html)
+- [Bash Builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
 
 # メモ
 
 ## /usr/local/bin/sbashの中身
 
-(コメント付き)
+コメント付き。
 
 ```sh
 #!/usr/bin/bash
@@ -122,7 +124,16 @@ exec /usr/bin/bash "$@"
 ```
 
 見ての通り大したことはしてない。
+
+要は：
+- ttyがあるときだけlibsnoopy.soをPRELOADする
+- 引数を全部渡す
+
+だけ。
+
 あと違うディストリの場合はttyやbashなんかのパスが違うかもしれない。`which tty`とかしてください。
+
+Debian系だとbashよりdashのほうがいいかも(不明)。
 
 ## snoopy logのサンプル
 
