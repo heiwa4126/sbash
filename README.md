@@ -100,18 +100,25 @@ sudo usermod -s /usr/local/bin/sbash root
 
 ## /usr/local/bin/sbashの中身
 
+(コメント付き)
+
 ```sh
 #!/usr/bin/bash
+# set -x
+# ↑をコメントアウトするとデバッグに便利.普通はいらない
 /bin/tty -s
 if [ $? -eq 0 ]; then
+  # 対話的にシェルが起動された場合のみsnoopyを有効にする
+　# - RHEL7, Cent OS7でsnoopyをrpmパッケージで入れた時↓
   export LD_PRELOAD=/usr/lib64/libsnoopy.so
-  # Debian, Ubuntuの場合
+  # - Debian, Ubuntuの場合は↓
   # export LD_PRELOAD=/lib/x86_64-linux-gnu/libsnoopy.so
 fi
 exec /usr/bin/bash "$@"
 ```
 
 見ての通り大したことはしてない。
+あと違うディストリの場合はttyやbashなんかのパスが違うかもしれない。`which tty`とかしてください。
 
 ## snoopy logのサンプル
 
