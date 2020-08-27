@@ -91,9 +91,13 @@ sudo usermod -s /usr/local/bin/sbash root
 ## `pwd`などが記録されない
 
 [Snoopy Logger](https://github.com/a2o/snoopy)は
-[execve(2) - Linux manual page](https://man7.org/linux/man-pages/man2/execve.2.html)を
+[execve(2)](https://man7.org/linux/man-pages/man2/execve.2.html)を
 フックするものなので、
-`bash -c help`で表示される、bashの内部コマンドは記録されません。
+bashの内部コマンドは記録されません。
+
+bashの内部コマンドは `bash -c help` または単に `help` で表示されるやつです。
+
+リファレンスはこちら→ [Bash Builtins (Bash Reference Manual)](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)
 
 
 # メモ
